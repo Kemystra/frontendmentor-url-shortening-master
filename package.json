@@ -1,0 +1,25 @@
+{
+  "name": "url-shortening-master",
+  "version": "1.0.0",
+  "description": "Website solution to URL Shortening Master challenge on FrontEndMentor.io",
+  "main": "-",
+  "scripts": {
+    "build": "sass --style=compressed --load-path=src/sass/ src/sass/main.scss:style.css",
+    "watch:sass": "sass --style=compressed -w --load-path=src/sass/ src/sass/main.scss:style.css",
+    "start-live-server": "live-server",
+    "watch-and-run": "run-p watch:sass start-live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kemystra/frontendmentor-sunny-page.git"
+  },
+  "keywords": [
+    "front-end"
+  ],
+  "author": "Izzminhal Akmal",
+  "license": "MIT",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.69.5"
+  }
+}
