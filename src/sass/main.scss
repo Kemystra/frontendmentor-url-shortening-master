@@ -36,6 +36,10 @@
 	color: var(--neutral-grayish-violet);
 }
 
+html, body {
+	width: 100vw;
+}
+
 img, picture, video, canvas, svg {
 	display: block;
 	max-width: 100%;
