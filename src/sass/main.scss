@@ -32,6 +32,8 @@
 	font-weight: var(--thin-font-weight);
 
 	line-height: 1.5;
+	text-decoration: none;
+	color: var(--neutral-grayish-violet);
 }
 
 img, picture, video, canvas, svg {
@@ -46,6 +48,8 @@ input, button, textarea, select {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Poppins', sans-serif;
 	font-weight: var(--thick-font-weight);
+
+	color: var(--neutral-dark-blue);
 }
 
 button {
