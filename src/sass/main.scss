@@ -27,6 +27,11 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
+
+	font-family: 'Poppins', sans-serif;
+	font-weight: var(--thin-font-weight);
+
+	line-height: 1.5;
 }
 
 img, picture, video, canvas, svg {
