@@ -3,7 +3,7 @@
 
 .header {
 	width: 100%;
-	padding: 0px 10rem;
+	padding: 3rem 10rem;
 
 	@include utils.flexbox(row, flex-start);
 
@@ -17,15 +17,15 @@
 }
 
 .header__account-stuff {
-	width: 20%;
+	width: 25%;
 	margin-left: auto;
 
 	@include utils.flexbox(row, space-evenly);
 }
 
 .header__login-btn {
+	color: inherit;
 	background: none;
-	color: var(--neutral-grayish-violet);
 }
 
 .header__sign-up-btn {
