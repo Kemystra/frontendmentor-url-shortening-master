@@ -29,6 +29,8 @@
 	border: 0;
 
 	font: inherit;
+	line-height: inherit;
+	color: inherit;
 }
 
 html {
@@ -36,8 +38,11 @@ html {
 	font-weight: var(--thin-font-weight);
 
 	line-height: 1.5;
-	text-decoration: none;
 	color: var(--neutral-grayish-violet);
+}
+
+a {
+	text-decoration: none;
 }
 
 html, body, main {

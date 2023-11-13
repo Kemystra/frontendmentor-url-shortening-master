@@ -6,6 +6,8 @@
 	padding: 0px 10rem;
 
 	@include utils.flexbox(row, flex-start);
+
+	font-weight: var(--thick-font-weight);
 }
 
 .header__nav {
