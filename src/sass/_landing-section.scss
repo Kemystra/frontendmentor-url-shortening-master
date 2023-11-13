@@ -1,0 +1,6 @@
+@use 'utils';
+
+
+.landing-section {
+	@include utils.flexbox(row, flex-start);
+}
