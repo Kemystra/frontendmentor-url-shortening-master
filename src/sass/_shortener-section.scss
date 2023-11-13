@@ -15,7 +15,7 @@
 	background-color: var(--primary-dark-violet);
 	background-image: url("images/bg-shorten-desktop.svg");
 	background-size: contain;
-	border-radius: 10px;
+	border-radius: var(--main-border-radius);
 
 	@include utils.flexbox(row, space-between);
 }
