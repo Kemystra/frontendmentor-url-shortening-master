@@ -50,6 +50,7 @@ a {
 
 html, body, main {
 	width: 100vw;
+	position: relative;
 }
 
 section, footer, header {
@@ -82,4 +83,9 @@ button {
 	border-radius: 9999px;
 
 	font-weight: var(--thick-font-weight);
+}
+
+.attribution {
+	position: absolute;
+	bottom: 0;
 }
