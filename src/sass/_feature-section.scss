@@ -34,17 +34,54 @@
 
 .feature-section__container {
 	width: 100%;
-	padding: 4rem 0px;
+	height: 80vh;
+	padding: 4rem 0px 8rem 0px;
+	position: relative;
 
 	@include utils.flexbox(row, space-between);
+
+	&::after {
+		content: '';
+		display: block;
+
+		width: 100%;
+		position: absolute;
+		z-index: -1;
+
+		border-bottom: solid 10px var(--primary-cyan);
+	}
 }
 
+$flex-align-vals: [flex-start, center, flex-end];
+$feature-img-url: ["brand-recognition.svg", "detailed-records.svg", "fully-customizable.svg"];
+
 .feature-box {
-	padding: 4rem 1.5rem 2rem 1.5rem;
-	width: 30%;
+	padding: 5rem 2rem 3rem 2rem;
+	width: 32%;
+	position: relative;
 
 	border-radius: var(--main-border-radius);
 	background-color: white;
+
+	&::after {
+		width: 5rem;
+		aspect-ratio: 1 / 1;
+
+		position: absolute;
+		top: -2.5rem;
+
+		@include utils.flexbox(row);
+
+		border-radius: 50%;
+		background-color: var(--primary-dark-violet);
+	}
+
+	@for $i from 1 through 3 {
+		&:nth-child(#{$i}) {
+			align-self: #{list.nth($flex-align-vals,$i)};
+			&::after { content: url("images/icon-" + #{list.nth($feature-img-url, $i)}) }
+		}
+	}
 }
 
 .feature-box__title {
