@@ -16,10 +16,10 @@
 }
 
 .header__account-stuff {
-	width: 25%;
+	width: 20%;
 	margin-left: auto;
 
-	@include utils.flexbox(row, space-evenly);
+	@include utils.flexbox(row, space-between);
 }
 
 .header__login-btn {
