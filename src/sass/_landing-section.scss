@@ -3,4 +3,26 @@
 
 .landing-section {
 	@include utils.flexbox(row, flex-start);
+	height: 60vh;
+}
+
+.landing-section__textbox {
+	width: 50%;
+
+	font-size: 1.4rem;
+	@include utils.flexbox(column, center, flex-start);
+}
+
+.landing-section__title {
+	font-size: 4.5rem;
+}
+
+.landing-section__cta-btn {
+	margin-top: 3rem;
+	padding: 0.8rem 3rem;
+}
+
+.landing-section__deco-img {
+	position: absolute;
+	right: -8%;
 }
