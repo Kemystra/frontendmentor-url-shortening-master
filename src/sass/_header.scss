@@ -20,3 +20,12 @@
 
 	@include utils.flexbox(row, space-evenly);
 }
+
+.header__login-btn {
+	background: none;
+	color: var(--neutral-grayish-violet);
+}
+
+.header__sign-up-btn {
+	padding: 0.5rem 1.5rem;
+}
