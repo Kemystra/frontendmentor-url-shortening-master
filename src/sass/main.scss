@@ -35,7 +35,6 @@
 
 html {
 	font-family: 'Poppins', sans-serif;
-	font-weight: var(--thin-font-weight);
 
 	line-height: 1.5;
 	color: var(--neutral-grayish-violet);
@@ -63,7 +62,6 @@ input, button, textarea, select {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Poppins', sans-serif;
 	font-weight: var(--thick-font-weight);
 
 	color: var(--neutral-dark-blue);
