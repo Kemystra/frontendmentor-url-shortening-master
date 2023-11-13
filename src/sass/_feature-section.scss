@@ -1,0 +1,53 @@
+@use 'sass:list';
+@use 'utils';
+
+
+.feature-section {
+	position: relative;
+
+	@include utils.flexbox(column);
+
+	&::before {
+		content: '';
+		display: block;
+		z-index: -1;
+
+		width: 100vw;
+		height: 100%;
+		position: absolute;
+
+		background-color: var(--neutral-foreign-gray);
+	}
+}
+
+.feature-section__title {
+	margin-top: 4rem;
+	font-size: 2.5rem;
+}
+
+.feature-section__desc {
+	margin-top: 1rem;
+
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.feature-section__container {
+	width: 100%;
+	padding: 4rem 0px;
+
+	@include utils.flexbox(row, space-between);
+}
+
+.feature-box {
+	padding: 4rem 1.5rem 2rem 1.5rem;
+	width: 30%;
+
+	border-radius: var(--main-border-radius);
+	background-color: white;
+}
+
+.feature-box__title {
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+}
