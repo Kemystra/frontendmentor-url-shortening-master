@@ -1,0 +1,25 @@
+@use 'utils';
+
+
+.cta-section {
+	background-color: var(--primary-dark-violet);
+	background-image: url("images/bg-boost-desktop.svg");
+	background-size: contain;
+
+	width: 100%;
+	aspect-ratio: 144 / 25;
+
+	@include utils.flexbox(column);
+}
+
+.cta-section__title {
+	color: white;
+	font-size: 2.3rem;
+}
+
+.cta-section__btn {
+	font-size: 1.4rem;
+
+	margin-top: 1.5rem;
+	padding: 0.8rem 3rem;
+}
