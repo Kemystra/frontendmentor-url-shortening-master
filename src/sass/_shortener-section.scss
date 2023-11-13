@@ -1,0 +1,39 @@
+@use 'utils';
+
+
+.shorten-section {
+	padding: 3rem 0px;
+}
+
+.shorten-section__form {
+	width: 100%;
+	aspect-ratio: 185 / 28;
+	padding: 0px 4rem;
+
+	font-size: 1.2rem;
+
+	background-color: var(--primary-dark-violet);
+	background-image: url("images/bg-shorten-desktop.svg");
+	background-size: contain;
+	border-radius: 10px;
+
+	@include utils.flexbox(row, space-between);
+}
+
+.shorten-section__url-input {
+	height: 40%;
+	width: 78%;
+	padding-left: 2rem;
+
+	border-radius: inherit;
+
+	// Firefox lowers the opacity by default
+	&::placeholder { opacity: 1 }
+}
+
+.shorten-section__process-btn {
+	height: 40%;
+	width: 18%;
+
+	border-radius: inherit;
+}
