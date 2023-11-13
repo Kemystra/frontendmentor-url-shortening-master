@@ -37,6 +37,8 @@ html {
 
 	line-height: 1.5;
 	color: var(--neutral-grayish-violet);
+
+	overflow-x: hidden;
 }
 
 a {
@@ -52,7 +54,7 @@ section, footer, header {
 }
 
 main {
-	padding: 0px 10rem;
+	padding: 0px 8vw;
 }
 
 img, picture, video, canvas, svg {
@@ -66,7 +68,7 @@ input, button, textarea, select {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: var(--thick-font-weight);
-
+	line-height: 1.2;
 	color: var(--neutral-dark-blue);
 }
 
