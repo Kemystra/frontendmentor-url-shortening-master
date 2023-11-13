@@ -49,6 +49,10 @@ html, body, main {
 	width: 100vw;
 }
 
+main {
+	padding: 0px 10rem;
+}
+
 img, picture, video, canvas, svg {
 	display: block;
 	max-width: 100%;
