@@ -4,13 +4,13 @@
 .header {
 	padding: 3rem var(--main-side-padding);
 
-	@include utils.flexbox(row, flex-start);
+	@include utils.flexbox(row, space-between);
 
 	font-weight: var(--thick-font-weight);
 }
 
 .header__mobile-menu {
-	width: 100px;
+	width: 50px;
 	aspect-ratio: 1 / 1;
 
 	display: none;
@@ -53,6 +53,12 @@
 
 @media (max-width: 400px) {
 	.header__mobile-menu {
-		display: block;
+		@include utils.flexbox(column, space-between);
+
+		div { display: block }
+	}
+
+	.header__menu {
+		display: none;
 	}
 }
