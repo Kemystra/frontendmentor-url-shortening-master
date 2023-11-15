@@ -22,6 +22,7 @@
 	--thick-font-weight: 700;
 
 	--main-border-radius: 10px;
+	--main-side-padding: 8vw;
 }
 
 /* CSS RESET */
@@ -58,7 +59,7 @@ section, footer, header {
 }
 
 main {
-	padding: 0px 8vw;
+	padding: 0px var(--main-side-padding);
 }
 
 img, picture, video, canvas, svg {

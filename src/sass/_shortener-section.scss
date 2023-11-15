@@ -2,7 +2,8 @@
 
 
 .shorten-section {
-	padding: 3rem 0px;
+	--shorten-section-vertical-padding: 3rem;
+	padding: var(--shorten-section-vertical-padding) 0px;
 }
 
 .shorten-section__form {
@@ -18,6 +19,24 @@
 	border-radius: var(--main-border-radius);
 
 	@include utils.flexbox(row, space-between);
+
+	position: relative;
+
+	&::before {
+		content: '';
+		display: block;
+		z-index: -1;
+
+		width: 100vw;
+		height: calc(50% + var(--shorten-section-vertical-padding));
+
+		// Now that's hacky
+		position: absolute;
+		bottom: -3rem;
+		left: calc(-1 * var(--main-side-padding));
+
+		background-color: var(--neutral-foreign-gray);
+	}
 }
 
 .shorten-section__url-input {
