@@ -1,0 +1,13 @@
+@use 'utils';
+
+
+.footer {
+	background-color: var(--neutral-dark-violet);
+
+	padding: 3rem 5rem 5rem 2rem;
+	@include utils.flexbox(row, space-between);
+}
+
+.contact-list {
+	@include utils.flexbox(row, space-between);
+}
