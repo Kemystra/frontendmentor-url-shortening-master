@@ -4,10 +4,31 @@
 .footer {
 	background-color: var(--neutral-dark-violet);
 
-	padding: 3rem 5rem 5rem 2rem;
-	@include utils.flexbox(row, space-between);
+	height: 40vh;
+	padding: 5rem 8rem 0rem 8rem;
+	@include utils.flexbox(row, flex-end, flex-start);
+	gap: 6rem;
+}
+
+.footer__logo {
+	margin-right: auto;
 }
 
 .contact-list {
+	width: 15%;
 	@include utils.flexbox(row, space-between);
+}
+
+.link-list__title {
+	color: white;
+	margin-bottom: 1.5rem;
+}
+
+.link-list__item {
+	margin-bottom: 0.7rem;
+	list-style-type: none;
+}
+
+.link-list__link {
+	color: var(--neutral-gray);
 }
