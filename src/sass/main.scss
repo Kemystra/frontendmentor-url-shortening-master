@@ -89,4 +89,8 @@ button {
 .attribution {
 	position: absolute;
 	bottom: 0;
+
+	a {
+		color: var(--primary-cyan);
+	}
 }
