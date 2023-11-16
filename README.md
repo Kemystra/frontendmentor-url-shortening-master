@@ -67,6 +67,17 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 1. I found out that a lot of people agreed that some CSS defaults aren't really aligned with their projects. So they reset them! I took inspiration from [meyerweb.com](https://meyerweb.com/eric/tools/css/reset/) and also [www.joshwcomeau.com](https://www.joshwcomeau.com/css/custom-css-reset/).
 
+2. First time using `flex-shrink`! It helps to tell a flexbox should an element be shrunk or not. Especially useful when dealing with texts to avoid them from being squished from the sides.
+
+```css
+.flex-element {
+    width: 50%;
+    /* With this, I will maintain my width
+    the flexbox won't shrink this */
+    flex-shrink: 0;
+}
+```
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
