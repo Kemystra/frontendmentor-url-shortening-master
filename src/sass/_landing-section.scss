@@ -4,8 +4,8 @@
 .landing-section {
 	@include utils.flexbox(row, flex-start);
 
-	//font-size: clamp(1rem, 2vw, 1.4rem);
-	font-size: 1.4rem;
+	font-size: clamp(1.2rem, 2vw, 1.4rem);
+	//font-size: 1.4rem;
 }
 
 .landing-section__textbox {
@@ -17,7 +17,7 @@
 }
 
 .landing-section__title {
-	font-size: clamp(3.5rem, 5vw, 5.5rem);
+	font-size: clamp(2.5rem, 5vw, 5.5rem);
 }
 
 .landing-section__cta-btn {
@@ -30,6 +30,12 @@
 	top: 0;
 	bottom: 0;
 	right: -5vw;
+}
+
+@media (max-width: 750px) and (min-width: 601px) {
+	.landing-section__textbox {
+		width: 50%;
+	}
 }
 
 @media (max-width: 600px) {
