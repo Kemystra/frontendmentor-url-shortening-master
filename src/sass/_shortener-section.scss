@@ -28,7 +28,7 @@
 	aspect-ratio: 185 / 28;
 	padding: 0px 4rem;
 
-	font-size: 1.2rem;
+	font-size: clamp(1rem, 5vw, 1.2rem);
 
 	background-color: var(--primary-dark-violet);
 	background-image: url("images/bg-shorten-desktop.svg");
@@ -70,5 +70,48 @@
 	height: 40%;
 	width: 18%;
 
+	line-height: 1rem;
+
 	border-radius: inherit;
+}
+
+@media (max-width: 1000px) and (min-width: 601px) {
+	.shorten-section__form {
+		padding: 1rem;
+
+		&>* {
+			height: 100%;
+		}
+	}
+
+	.shorten-section__process-btn {
+		font-size: clamp(1rem, 2.5vw, 2rem);
+	}
+}
+
+
+@media (max-width: 600px) {
+	.shorten-section__form {
+		flex-direction: column;
+
+		aspect-ratio: 237 / 110;
+		background-image: url("./images/bg-shorten-mobile.svg");
+		background-repeat: no-repeat;
+		background-position-x: right;
+		background-size: 70%;
+
+		padding: 1.2rem 1.2rem;
+	}
+
+	.shorten-section__url-input {
+		width: 100%;
+		height: 45%;
+
+		padding-left: 1rem;
+	}
+
+	.shorten-section__process-btn {
+		width: 100%;
+		height: 45%;
+	}
 }
