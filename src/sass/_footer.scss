@@ -4,10 +4,15 @@
 .footer {
 	background-color: var(--neutral-dark-violet);
 
-	height: 40vh;
-	padding: 5rem 8rem 0rem 8rem;
-	@include utils.flexbox(row, flex-end, flex-start);
-	gap: 6rem;
+	padding-top: clamp(5rem, 2vw, 2rem);
+	padding-bottom: 2rem;
+
+	--side-padding: clamp(4rem, 2vw, 8rem);
+	padding-left: var(--side-padding);
+	padding-right: var(--side-padding);
+
+	@include utils.flexbox(row, center, flex-start);
+	gap: clamp(2rem, 5vw, 6rem);
 }
 
 .footer__logo {
@@ -16,6 +21,7 @@
 
 .contact-list {
 	width: 15%;
+	flex-shrink: 0;
 	@include utils.flexbox(row, space-between);
 }
 
@@ -31,4 +37,47 @@
 
 .link-list__link {
 	color: var(--neutral-gray);
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 601px) {
+	.footer {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.footer__logo {
+		margin: 0;
+	}
+
+	.contact-list {
+		flex-direction: column;
+		width: 3rem;
+	}
+
+	.contact-list__item {
+		margin-bottom: 2rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.footer {
+		height: fit-content;
+
+		padding-top: 2rem;
+
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		text-align: center;
+	}
+
+	.footer__logo {
+		margin: 0;
+	}
+
+	.contact-list {
+		width: 80%;
+	}
 }
