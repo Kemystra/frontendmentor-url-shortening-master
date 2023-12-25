@@ -77,7 +77,9 @@ Then crop/optimize/edit your image however you like, add it to your project, and
     flex-shrink: 0;
 }
 ```
+3. I got a better understanding on how to use `rem` vs `px`! So you use `rem` for stuff that is related to font size, e.g: text, text container, etc. If a user needs a bigger font size, elements that use rem would also follow that font size as a reference (also, don't put fixed font size in HTML tags to avoid pre-setting it).
 
+`px` is better for fixed placements of objects, where design is of utmost importance. e.g: Decorative images, spacings, etc.
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
