@@ -5,6 +5,7 @@
 .feature-section {
 	position: relative;
 
+	font-size: clamp(1rem, 1vw, 1.2rem);
 	@include utils.flexbox(column);
 
 	&::before {
@@ -22,13 +23,12 @@
 
 .feature-section__title {
 	margin-top: 4rem;
-	font-size: 2.5rem;
+	font-size: clamp(1.6rem, 2vw, 2.5rem);
 }
 
 .feature-section__desc {
 	margin-top: 1rem;
 
-	font-size: 1.1rem;
 	text-align: center;
 }
 
@@ -87,4 +87,49 @@ $feature-img-url: ["brand-recognition.svg", "detailed-records.svg", "fully-custo
 .feature-box__title {
 	font-size: 1.4rem;
 	margin-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 1000px) {
+	.feature-section {
+		padding-left: clamp(0.1rem, 10vw, 20rem);
+		padding-right: clamp(0.1rem, 10vw, 20rem);
+	}
+
+	.feature-section__title {
+		margin-top: 2rem;
+	}
+
+	.feature-section__container {
+		flex-direction: column;
+		height: fit-content;
+
+		padding-top: 1rem;
+
+		&::after {
+			width: 10px;
+			height: 500px;
+
+			border: none;
+			background-color: var(--primary-cyan);
+
+			// Classic centering trick
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.feature-box {
+		width: 100%;
+		margin-top: 100px;
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}) { align-self: center; }
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.feature-section {
+		padding: 0;
+	}
 }
