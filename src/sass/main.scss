@@ -41,8 +41,6 @@ html {
 
 	line-height: 1.5;
 	color: var(--neutral-grayish-violet);
-
-	overflow-x: hidden;
 }
 
 a {
@@ -50,8 +48,10 @@ a {
 }
 
 html, body, main {
-	width: clamp(250px, 100vw, 2500px);
+	width: clamp(300px, 100vw, 2500px);
 	position: relative;
+
+	overflow-x: hidden;
 }
 
 section, footer, header {
