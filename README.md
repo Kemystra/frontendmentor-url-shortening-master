@@ -81,10 +81,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 `px` is better for fixed placements of objects, where design is of utmost importance. e.g: Decorative images, spacings, etc.
 ### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+1. I just realized that I used a lot of `clamp()` with `vw` units. I should have made it dependent on its parent size by using percentage units. That way, I can limit the UI size with ultrawide monitors. Oh well.
 
 ### Useful resources
 
