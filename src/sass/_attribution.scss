@@ -1,0 +1,66 @@
+@use 'utils';
+
+.attribution {
+	position: fixed;
+	top: 0;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: #000000AA;
+
+	@include utils.flexbox(column);
+
+	--banner-anim-time: 0.7s;
+	transition: display var(--banner-anim-time) - 0.2s;
+
+	a {
+		color: var(--primary-cyan);
+	}
+
+	.attribution__banner {
+		position: absolute;
+		top: 0;
+
+		max-width: 50%;
+		margin-top: 10%;
+		padding: 2rem;
+
+		background-color: white;
+		border: 10px solid var(--primary-cyan);
+		border-radius: 20px;
+		font-size: 1.2rem;
+
+		animation-name: bouncy-vertical;
+		animation-duration: var(--banner-anim-time);
+		animation-timing-function: ease;
+	}
+}
+
+.attribution--hidden {
+	transition: display 0s;
+	transition-delay: var(--banner-anim-time);
+
+	.attribution__banner {
+		animation-name: bouncy-vertical;
+		animation-duration: 0.7s;
+		animation-timing-function: ease;
+		animation-direction: reverse;
+	}
+}
+
+
+@keyframes bouncy-vertical {
+	from {
+		top: -100%;
+	}
+
+	50% {
+		top: 10%;
+		transform: scaleX(110%);
+	}
+
+	to {
+		top: 0;
+	}
+}

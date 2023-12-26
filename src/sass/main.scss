@@ -4,6 +4,7 @@
 @use 'feature-section';
 @use 'cta-section';
 @use 'footer';
+@use 'attribution';
 
 /* Global vars */
 :root {
@@ -85,13 +86,4 @@ button {
 	border-radius: 9999px;
 
 	font-weight: var(--thick-font-weight);
-}
-
-.attribution {
-	position: absolute;
-	bottom: 0;
-
-	a {
-		color: var(--primary-cyan);
-	}
 }
