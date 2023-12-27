@@ -41,6 +41,8 @@
 	transition: display 0s;
 	transition-delay: var(--banner-anim-time);
 
+	display: none;
+
 	.attribution__banner {
 		animation-name: bouncy-vertical;
 		animation-duration: 0.7s;
