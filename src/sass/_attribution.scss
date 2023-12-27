@@ -7,9 +7,10 @@
 	width: 100vw;
 	height: 100vh;
 
-	background-color: #000000AA;
 	@include utils.flexbox(column);
+
 	--banner-anim-time: 0.7s;
+	background-color: #000000AA;
 
 	a {
 		color: var(--primary-cyan);
