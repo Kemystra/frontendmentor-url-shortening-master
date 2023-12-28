@@ -46,7 +46,7 @@ html {
 	color: var(--neutral-grayish-violet);
 }
 
-a {
+a, a>* {
 	text-decoration: none;
 	transition: all var(--button-transition-time);
 }

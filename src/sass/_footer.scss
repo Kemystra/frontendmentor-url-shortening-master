@@ -39,6 +39,15 @@
 	color: var(--neutral-gray);
 }
 
+.footer__link:hover {
+	color: var(--primary-cyan);
+
+    // As taken from https://codepen.io/sosuke/pen/Pjoqqp
+	& > img {
+		filter: brightness(0) saturate(100%) invert(81%) sepia(83%) saturate(1370%) hue-rotate(132deg) brightness(84%) contrast(92%);
+	}
+}
+
 
 @media screen and (max-width: 1000px) and (min-width: 601px) {
 	.footer {
