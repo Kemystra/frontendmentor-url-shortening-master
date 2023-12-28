@@ -24,6 +24,8 @@
 
 	--main-border-radius: 10px;
 	--main-side-padding: 7vw;
+
+	--button-transition-time: 0.25s;
 }
 
 /* CSS RESET */
@@ -86,4 +88,10 @@ button {
 	border-radius: 9999px;
 
 	font-weight: var(--thick-font-weight);
+
+	transition: background-color var(--button-transition-time);
+}
+
+button:hover {
+	background-color: #8ff2f2;
 }
