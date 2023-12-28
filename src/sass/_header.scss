@@ -36,6 +36,10 @@
 	@include utils.flexbox(row, space-evenly);
 }
 
+.header__navlink:hover {
+	color: var(--neutral-dark-blue);
+}
+
 .header__account-stuff {
 	width: 12rem;
 	@include utils.flexbox(row, space-between);
@@ -44,6 +48,10 @@
 .header__login-btn {
 	color: inherit;
 	background: none;
+
+	&:hover {
+		background-color: white;
+	}
 }
 
 .header__sign-up-btn {

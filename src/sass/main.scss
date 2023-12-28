@@ -48,6 +48,7 @@ html {
 
 a {
 	text-decoration: none;
+	transition: all var(--button-transition-time);
 }
 
 html, body, main {
@@ -89,7 +90,7 @@ button {
 
 	font-weight: var(--thick-font-weight);
 
-	transition: background-color var(--button-transition-time);
+	transition: all var(--button-transition-time);
 }
 
 button:hover {
