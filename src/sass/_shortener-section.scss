@@ -55,15 +55,17 @@
 	}
 }
 
-.shorten-section__url-input {
+.shorten-section__url-field {
 	height: 40%;
 	width: 78%;
-	padding-left: 2rem;
 
-	border-radius: inherit;
+	&>.url-field__input {
+		height: 100%;
+		width: 100%;
+		padding-left: 2rem;
 
-	// Firefox lowers the opacity by default
-	&::placeholder { opacity: 1 }
+		border-radius: var(--main-border-radius);
+	}
 }
 
 .shorten-section__process-btn {

@@ -76,6 +76,37 @@ input, button, textarea, select {
 	padding: 0.2rem;
 }
 
+.url-field {
+	position: relative;
+}
+
+.url-field__input {
+	border: none;
+	outline: none;
+
+	// Firefox lowers the opacity by default
+	&::placeholder { opacity: 1 }
+}
+
+.url-field__error-msg {
+	display: none;
+
+	color: var(--secondary-red);
+	font-style: italic;
+	font-size: 1rem;
+
+	position: absolute;
+	bottom: -2rem;
+}
+
+.url-field__input:invalid {
+	border: 3px solid var(--secondary-red);
+}
+
+.url-field__input:invalid + .url-field__error-msg {
+	display: block;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: var(--thick-font-weight);
 	line-height: 1.2;
