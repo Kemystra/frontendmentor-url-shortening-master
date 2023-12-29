@@ -80,6 +80,9 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 3. I got a better understanding on how to use `rem` vs `px`! So you use `rem` for stuff that is related to font size, e.g: text, text container, etc. If a user needs a bigger font size, elements that use rem would also follow that font size as a reference (also, don't put fixed font size in HTML tags to avoid pre-setting it).
 
 `px` is better for fixed placements of objects, where design is of utmost importance. e.g: Decorative images, spacings, etc.
+
+4. `::after` and `::before` pseudoelements can only be applied on "container" elements like `div`. Learned this the hard way when making the error message for the URL input!
+
 ### Continued development
 
 ### Useful resources
