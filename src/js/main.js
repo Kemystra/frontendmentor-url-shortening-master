@@ -25,7 +25,8 @@ const SHORTENER_FORM_ID = "shortener-form";
 const SHORTENER_URL_INPUT_ID = "url-shortener-input";
 
 const RESULT_PANEL_CLASS = "shortener-result-panel";
-const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait"
+const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait";
+const URL_SHORTENER_ENDPOINT = "https://cleanuri.com/api/v1/shorten";
 
 let shortenedURLs = [];
 let shortenerSection = document.getElementById(SHORTENER_SECTION_ID);
@@ -39,7 +40,7 @@ class URLPair {
 	}
 }
 
-shortenerForm.onsubmit = e => {
+shortenerForm.onsubmit = async e => {
 	e.preventDefault();
 
 	let originalURL = shortenerURLInput.value.trim();
@@ -47,4 +48,17 @@ shortenerForm.onsubmit = e => {
 	let resultPanel = document.createElement("div");
 	resultPanel.classList.add(RESULT_PANEL_CLASS, RESULT_PANEL_WAIT_CLASS);
 	shortenerSection.appendChild(resultPanel);
+
+	try {
+		const response = await fetch(URL_SHORTENER_ENDPOINT, {
+			method: "POST",
+			body: `url=${originalURL}`
+		});
+		const result = await response.json();
+		alert(result);
+	}
+
+	catch(error) {
+		console.log(error);
+	}
 }
