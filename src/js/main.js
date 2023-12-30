@@ -26,7 +26,11 @@ const SHORTENER_URL_INPUT_ID = "url-shortener-input";
 
 const RESULT_PANEL_CLASS = "shortener-result-panel";
 const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait";
-const URL_SHORTENER_ENDPOINT = "https://cleanuri.com/api/v1/shorten";
+
+// The original cleanURI API does not support CORS
+// Need to have a proxy server to access the API
+// Using local server for that purpose
+const URL_SHORTENER_ENDPOINT = "https://localhost:8081/shorten";
 
 let shortenedURLs = [];
 let shortenerSection = document.getElementById(SHORTENER_SECTION_ID);
