@@ -83,6 +83,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 4. `::after` and `::before` pseudoelements can only be applied on "container" elements like `div`. Learned this the hard way when making the error message for the URL input!
 
+5. CORS lol. CleanURI API does not have the necessary CORS headers. I used a local proxy server for this challenge.
+
 ### Continued development
 
 ### Useful resources
