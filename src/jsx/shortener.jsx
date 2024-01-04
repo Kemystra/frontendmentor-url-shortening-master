@@ -43,3 +43,20 @@ shortenerForm.onsubmit = async e => {
 		console.log(error);
 	}
 }
+
+const Shortener = () => {
+	return <p>You fool!</p>
+	/*
+	return (
+		<form action="" class="shorten-section__form" id="shortener-form">
+			<div class="shorten-section__url-field url-field">
+				<input placeholder="Shorten a link here..." type="url" id="url-shortener-input" class="url-field__input" />
+				<p class="url-field__error-msg">Please add a link</p>
+			</div>
+			<button class="shorten-section__process-btn">Shorten It!</button>
+		</form>
+	)
+	*/
+}
+
+export default Shortener;
