@@ -1,3 +1,6 @@
+import React from "react";
+
+
 const RESULT_PANEL_CLASS = "shortener-result-panel";
 const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait";
 
@@ -13,15 +16,14 @@ class URLPair {
 }
 
 const Shortener = () => {
+	const [url, setURL] = React.useState("");
 	async function handleSubmit(e) {
 		e.preventDefault();
-
-		let originalURL = shortenerURLInput.value.trim();
 
 		try {
 			const response = await fetch(URL_SHORTENER_ENDPOINT, {
 				method: "POST",
-				body: `url=${originalURL}`
+				body: `url=${url}`
 			});
 			const result = await response.json();
 			alert(result);
@@ -36,7 +38,8 @@ const Shortener = () => {
 		<>
 			<form action="" className="shorten-section__form" onSubmit={handleSubmit}>
 				<div className="shorten-section__url-field url-field">
-					<input placeholder="Shorten a link here..." type="url" className="url-field__input" />
+					<input placeholder="Shorten a link here..." type="url"
+						value={url} onChange={(e) => setURL(e.target.value)} className="url-field__input" />
 					<p className="url-field__error-msg">Please add a link</p>
 				</div>
 				<button className="shorten-section__process-btn">Shorten It!</button>
