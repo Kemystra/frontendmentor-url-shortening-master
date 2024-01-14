@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useRenderCount } from "@uidotdev/usehooks";
 
 const RESULT_PANEL_CLASS = "shortener-result-panel";
 const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait";
@@ -20,21 +20,18 @@ const Shortener = () => {
 	const [url, setURL] = React.useState("");
 	const [urlList, setURLList] = React.useState([]);
 
-	async function handleSubmit(e) {
+	function handleSubmit(e) {
 		e.preventDefault();
 
-		try {
-			const response = await fetch(URL_SHORTENER_ENDPOINT, {
-				method: "POST",
-				body: `url=${url}`
-			});
-			console.log(response);
-			setURLList([...urlList, new URLPair(url, response.json())])
-		}
-
-		catch(error) {
-			console.log(error);
-		}
+		let fetchPromise = fetch(URL_SHORTENER_ENDPOINT, {
+			method: "POST",
+			body: `url=${url}`
+		});
+		fetchPromise.then(
+			response => setURLList([
+				...urlList, new URLPair(url, response.json())
+			])
+		);
 	}
 
 	return (
@@ -47,15 +44,31 @@ const Shortener = () => {
 				</div>
 				<button className="shorten-section__process-btn">Shorten It!</button>
 			</form>
-			{urlList.map(pair => {
-				return <ResultPanel urlPair={pair}/>
+			{urlList.map((pair, index) => {
+				return <ResultPanel key={index} urlPair={pair}/>
 			})}
 		</>
 	)
 }
 
 const ResultPanel = ({ urlPair }) => {
-	return <div className={RESULT_PANEL_CLASS + " " + RESULT_PANEL_WAIT_CLASS}>{urlPair.longURL}</div>
+	const [shortenedURL, setShortenedURL] = React.useState("");
+	const renderCount = useRenderCount();
+
+	urlPair.promisedURL.then(resp => {
+		setShortenedURL(resp.result)
+	});
+
+	console.log(renderCount);
+
+	return (
+		<div className={`${RESULT_PANEL_CLASS} ${shortenedURL ? "" : RESULT_PANEL_WAIT_CLASS}`}>
+			{shortenedURL && <>
+				<p>{urlPair.longURL}</p>
+				<p>{shortenedURL}</p>
+			</>}
+		</div>
+	)
 }
 
 export default Shortener;
