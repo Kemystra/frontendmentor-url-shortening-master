@@ -12,6 +12,7 @@ export default defineConfig({
 		}
 	},
 	server: {
+		hmr: false,
 		proxy: {
 			"/shorten-url": {
 				target: "http://localhost:3000",
