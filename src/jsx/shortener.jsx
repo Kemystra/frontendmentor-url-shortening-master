@@ -10,13 +10,16 @@ const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait";
 const URL_SHORTENER_ENDPOINT = "/shorten-url";
 
 class URLPair {
-	constructor(longURL) {
+	constructor(longURL, promisedURL) {
 		this.longURL = longURL;
+		this.promisedURL = promisedURL;
 	}
 }
 
 const Shortener = () => {
 	const [url, setURL] = React.useState("");
+	const [urlList, setURLList] = React.useState([]);
+
 	async function handleSubmit(e) {
 		e.preventDefault();
 
@@ -25,8 +28,8 @@ const Shortener = () => {
 				method: "POST",
 				body: `url=${url}`
 			});
-			const result = await response.json();
-			alert(result);
+			console.log(response);
+			setURLList([...urlList, new URLPair(url, response.json())])
 		}
 
 		catch(error) {
@@ -44,12 +47,15 @@ const Shortener = () => {
 				</div>
 				<button className="shorten-section__process-btn">Shorten It!</button>
 			</form>
+			{urlList.map(pair => {
+				return <ResultPanel urlPair={pair}/>
+			})}
 		</>
 	)
 }
 
-const ResultPanel = () => {
-	return <div className={RESULT_PANEL_CLASS + " " + RESULT_PANEL_WAIT_CLASS}></div>
+const ResultPanel = ({ urlPair }) => {
+	return <div className={RESULT_PANEL_CLASS + " " + RESULT_PANEL_WAIT_CLASS}>{urlPair.longURL}</div>
 }
 
 export default Shortener;
