@@ -23,3 +23,7 @@ async function streamToString(stream) {
 
     return Buffer.concat(chunks).toString("utf-8");
 }
+
+export const config = {
+	path: "/shorten-url"
+};
