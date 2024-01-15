@@ -41,7 +41,10 @@ const ResultPanel = props => {
 	React.useEffect(() => {
 		fetch(URL_SHORTENER_ENDPOINT, {
 			method: "POST",
-			body: `url=${props.longURL}`
+			body: `url=${encodeURIComponent(props.longURL)}`,
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			}
 		})
 		.then((resp) => resp.json())
 		.then((data) => {setShortenedURL(data.result)});
