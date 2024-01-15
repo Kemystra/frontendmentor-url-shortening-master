@@ -28,3 +28,6 @@ style.css.map
 
 # Ignore npm package files
 /node_modules
+
+# Ignore server.mjs file used to test Netlify functions
+netlify/server.mjs
