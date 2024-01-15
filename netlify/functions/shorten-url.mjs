@@ -1,14 +1,14 @@
 const SHORTEN_ENDPOINT = "https://cleanuri.com/api/v1/shorten";
 
 export default async (req, context) => {
-	const requestedURL = await streamToString(req.body);
+	const rawFormData = await streamToString(req.body);
 
 	const response = await fetch(SHORTEN_ENDPOINT, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
 		},
-		body: requestedURL
+		body: rawFormData
 	});
 
 	return await response.json();
