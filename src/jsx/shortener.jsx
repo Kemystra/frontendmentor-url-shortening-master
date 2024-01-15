@@ -1,9 +1,9 @@
 import React from "react";
 
 
-const RESULT_PANEL_CLASS = "shortener-result-panel";
-const RESULT_PANEL_WAIT_CLASS = "shortener-result-panel--wait";
-const RESULT_PANEL_LONG_URL_CLASS = "shortener-result-panel__long-url";
+const RESULT_PANEL_CLASS = "shorten-section__result-panel";
+const RESULT_PANEL_WAIT_CLASS = "shorten-section__result-panel--wait";
+const RESULT_PANEL_LONG_URL_CLASS = "shorten-section__result-long-url";
 
 // The original cleanURI API does not support CORS
 // Need to have a proxy server to access the API
