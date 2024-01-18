@@ -83,9 +83,13 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 4. `::after` and `::before` pseudoelements can only be applied on "container" elements like `div`. Learned this the hard way when making the error message for the URL input!
 
-5. CORS lol. CleanURI API does not have the necessary CORS headers. I used a local proxy server for this challenge.
+5. CORS lol. CleanURI API does not have the necessary CORS headers. I used Netlify's function service as a proxy for the API.
+
+6. `position: fixed` requires both horizontal and vertical position set (e.g: `top: 0;` and `left: 0;`). It will not work without either of them.
 
 ### Continued development
+
+1. I just realized that a relatively new `dialog` HTML tag would have made it easier to show the attribution part. Gonna use that next time.
 
 ### Useful resources
 
