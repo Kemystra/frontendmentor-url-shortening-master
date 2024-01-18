@@ -47,6 +47,7 @@ const ResultPanel = props => {
 			}
 		})
 		.then((resp) => resp.json())
+		.catch((err) => alert(err))
 		.then((data) => {setShortenedURL(data.result_url)});
 	}, []);
 
