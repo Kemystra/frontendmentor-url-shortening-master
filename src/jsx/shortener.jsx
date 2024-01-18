@@ -13,6 +13,7 @@ const URL_SHORTENER_ENDPOINT = "/shorten-url";
 const Shortener = () => {
 	const [url, setURL] = React.useState("");
 	const [urlList, setUrlList] = React.useState([]);
+	const [notifList, setNotifList] = React.useState([]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -32,6 +33,11 @@ const Shortener = () => {
 			{urlList.map((url, index) => {
 				return <ResultPanel key={index} longURL={url}/>
 			})}
+			<div className="notification-container">
+				{notifList.map((notifData, index) => {
+					return <Notification key={index} data={notifData}/>
+				})}
+			</div>
 		</>
 	)
 }
@@ -59,6 +65,12 @@ const ResultPanel = props => {
 			</>}
 		</div>
 	)
+}
+
+const Notification = props => {
+	return <div className="notification">
+		<p>{props.content}</p>
+	</div>
 }
 
 export default Shortener;
