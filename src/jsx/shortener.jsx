@@ -93,6 +93,19 @@ const ResultPanel = props => {
 }
 
 const Notification = ({ data: {type, content}, ..._ }) => {
+	const [isExpired, setIsExpired] = React.useState(false);
+
+	React.useEffect(() => {
+		let timer = setTimeout(() => {
+			setIsExpired(true);
+			console.log("Gets destroyed");
+		}, 2000);
+		return () => { clearTimeout(timer) }
+	}, []);
+
+
+	f (isExpired) { return null }
+
 	return <div className={`notification notification--${type}`}>
 		<p>{content}</p>
 	</div>
