@@ -9,10 +9,12 @@
 
 	width: 50vw;
 	height: 100vh;
+	padding: 20px;
 
 	pointer-events: none;
 
 	@include utils.flexbox(column, flex-end, flex-start);
+	gap: 10px;
 }
 
 .notification {
@@ -22,14 +24,42 @@
 	height: 3.5rem;
 	padding: 1rem;
 
+	border-radius: var(--main-border-radius);
+
 	background-color: white;
-	outline: 1px solid var(--primary-cyan);
+	outline: 3px solid var(--primary-cyan);
+
+	animation:
+		0.5s ease-out 0s forwards slideIn,
+		0.5s ease-in 3s forwards slideOut;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideOut {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
 }
 
 .notification--error {
 	outline-color: var(--secondary-red);
+	color: var(--secondary-red);
 }
 
 .notification--info {
 	outline-color: var(--secondary-green);
+	color: var(--secondary-green);
 }

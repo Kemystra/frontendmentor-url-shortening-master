@@ -32,11 +32,11 @@ const Shortener = () => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		setUrlList(prevList => [...prevList, url]);
+		setUrlList(prevList => [url, ...prevList]);
 	}
 
 	function handleNotify(data) {
-		setNotifList(prevList => [...prevList, data]);
+		setNotifList(prevList => [data, ...prevList]);
 	}
 
 	return (
@@ -95,18 +95,15 @@ const ResultPanel = props => {
 const Notification = ({ data: {type, content}, ..._ }) => {
 	const [isExpired, setIsExpired] = React.useState(false);
 
-	React.useEffect(() => {
-		let timer = setTimeout(() => {
+	function handleAnimationEnd(e) {
+		if (e.animationName === "slideOut") {
 			setIsExpired(true);
-			console.log("Gets destroyed");
-		}, 2000);
-		return () => { clearTimeout(timer) }
-	}, []);
+		}
+	}
 
+	if (isExpired) { return null }
 
-	f (isExpired) { return null }
-
-	return <div className={`notification notification--${type}`}>
+	return <div className={`notification notification--${type}`} onAnimationEnd={handleAnimationEnd}>
 		<p>{content}</p>
 	</div>
 }
