@@ -25,3 +25,11 @@
 	background-color: white;
 	outline: 1px solid var(--primary-cyan);
 }
+
+.notification--error {
+	outline-color: var(--secondary-red);
+}
+
+.notification--info {
+	outline-color: var(--secondary-green);
+}

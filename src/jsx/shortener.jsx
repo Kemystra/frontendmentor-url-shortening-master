@@ -28,7 +28,6 @@ const Shortener = () => {
 	// setState is async
 	// useEffect will guarantee to re-render on state change
 	React.useEffect(() => {
-		console.log(`useEffect: ${notifList.length}`);
 	}, [urlList, notifList]);
 
 	function handleSubmit(e) {
@@ -37,7 +36,6 @@ const Shortener = () => {
 	}
 
 	function handleNotify(data) {
-		console.log(`Handling Notification: ${data.content}`);
 		setNotifList(prevList => [...prevList, data]);
 	}
 
@@ -77,7 +75,6 @@ const ResultPanel = props => {
 		.then((data) => {
 				setShortenedURL(data.result_url);
 				props.onNotify(new NotificationData(INFO, "URL Shortened!"));
-				console.log(`ResultPanel: Notified`);
 		})
 		.catch((err) => {
 				props.onNotify(new NotificationData(ERROR, JSON.stringify(err, null, 2)));
@@ -95,9 +92,9 @@ const ResultPanel = props => {
 	)
 }
 
-const Notification = props => {
-	return <div className="notification">
-		<p>{props.data.content}</p>
+const Notification = ({ data: {type, content}, ..._ }) => {
+	return <div className={`notification notification--${type}`}>
+		<p>{content}</p>
 	</div>
 }
 
