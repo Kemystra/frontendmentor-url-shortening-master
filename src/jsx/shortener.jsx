@@ -10,14 +10,35 @@ const RESULT_PANEL_LONG_URL_CLASS = "shorten-section__result-long-url";
 // Using Netlify Function to serve that
 const URL_SHORTENER_ENDPOINT = "/shorten-url";
 
+const INFO = "info";
+const ERROR = "error";
+
+class NotificationData {
+	constructor(type, content) {
+		this.type = type;
+		this.content = content;
+	}
+}
+
 const Shortener = () => {
 	const [url, setURL] = React.useState("");
 	const [urlList, setUrlList] = React.useState([]);
 	const [notifList, setNotifList] = React.useState([]);
 
+	// setState is async
+	// useEffect will guarantee to re-render on state change
+	React.useEffect(() => {
+		console.log(`useEffect: ${notifList.length}`);
+	}, [urlList, notifList]);
+
 	function handleSubmit(e) {
 		e.preventDefault();
-		setUrlList([...urlList, url]);
+		setUrlList(prevList => [...prevList, url]);
+	}
+
+	function handleNotify(data) {
+		console.log(`Handling Notification: ${data.content}`);
+		setNotifList(prevList => [...prevList, data]);
 	}
 
 	return (
@@ -31,7 +52,7 @@ const Shortener = () => {
 				<button className="shorten-section__process-btn">Shorten It!</button>
 			</form>
 			{urlList.map((url, index) => {
-				return <ResultPanel key={index} longURL={url}/>
+				return <ResultPanel key={index} longURL={url} onNotify={handleNotify}/>
 			})}
 			<div className="notification-container">
 				{notifList.map((notifData, index) => {
@@ -53,8 +74,15 @@ const ResultPanel = props => {
 			}
 		})
 		.then((resp) => resp.json())
-		.catch((err) => alert(err))
-		.then((data) => {setShortenedURL(data.result_url)});
+		.then((data) => {
+				setShortenedURL(data.result_url);
+				props.onNotify(new NotificationData(INFO, "URL Shortened!"));
+				console.log(`ResultPanel: Notified`);
+		})
+		.catch((err) => {
+				props.onNotify(new NotificationData(ERROR, JSON.stringify(err, null, 2)));
+			});
+
 	}, []);
 
 	return (
@@ -69,7 +97,7 @@ const ResultPanel = props => {
 
 const Notification = props => {
 	return <div className="notification">
-		<p>{props.content}</p>
+		<p>{props.data.content}</p>
 	</div>
 }
 
