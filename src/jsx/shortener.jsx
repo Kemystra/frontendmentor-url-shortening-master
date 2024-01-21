@@ -17,6 +17,7 @@ class NotificationData {
 	constructor(type, content) {
 		this.type = type;
 		this.content = content;
+		this.id = crypto.randomUUID();
 	}
 }
 
@@ -32,7 +33,8 @@ const Shortener = () => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		setUrlList(prevList => [url, ...prevList]);
+		setUrlList(prevList => [{id: crypto.randomUUID(), url}, ...prevList]);
+		setURL("");
 	}
 
 	function handleNotify(data) {
@@ -49,12 +51,12 @@ const Shortener = () => {
 				</div>
 				<button className="shorten-section__process-btn">Shorten It!</button>
 			</form>
-			{urlList.map((url, index) => {
-				return <ResultPanel key={index} longURL={url} onNotify={handleNotify}/>
+			{urlList.map((url_data) => {
+				return <ResultPanel key={url_data.id} longURL={url_data.url} onNotify={handleNotify}/>
 			})}
 			<div className="notification-container">
-				{notifList.map((notifData, index) => {
-					return <Notification key={index} data={notifData}/>
+				{notifList.map((notifData) => {
+					return <Notification key={notifData.id} data={notifData}/>
 				})}
 			</div>
 		</>
