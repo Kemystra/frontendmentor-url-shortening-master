@@ -73,8 +73,13 @@ const ResultPanel = props => {
 		})
 		.then((resp) => resp.json())
 		.then((data) => {
+			if (data.result_url) {
 				setShortenedURL(data.result_url);
 				props.onNotify(new NotificationData(INFO, "URL Shortened!"));
+			}
+			else if (data.error) {
+				props.onNotify(new NotificationData(ERROR, data.error));
+			}
 		})
 		.catch((err) => {
 				props.onNotify(new NotificationData(ERROR, JSON.stringify(err, null, 2)));
