@@ -82,14 +82,15 @@
 	height: 5rem;
 
 	margin-top: 1.5rem;
-	padding: 3rem;
+	padding: 1rem 2rem;
 	border-radius: var(--main-border-radius);
 
 	position: relative;
 
 	font-size: 1.2rem;
 
-	@include utils.flexbox(row, space-between);
+	@include utils.flexbox(row, flex-end);
+	gap: 1rem;
 
 	background-color: white;
 }
@@ -110,12 +111,27 @@
 }
 
 .shorten-section__result-long-url {
-	max-width: 60%;
+	max-width: 55%;
 	color: var(--neutral-dark-blue);
 
 	overflow-x: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+
+	margin-right: auto;
+}
+
+.shorten-section__result-short-url {
+	color: var(--primary-cyan);
+}
+
+.shorten-section__result-copy-btn {
+	border-radius: var(--main-border-radius);
+
+	width: 10%;
+	height: 100%;
+
+	font-size: 1rem;
 }
 
 @media (max-width: 1000px) and (min-width: 601px) {

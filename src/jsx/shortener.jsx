@@ -4,6 +4,8 @@ import React from "react";
 const RESULT_PANEL_CLASS = "shorten-section__result-panel";
 const RESULT_PANEL_WAIT_CLASS = "shorten-section__result-panel--wait";
 const RESULT_PANEL_LONG_URL_CLASS = "shorten-section__result-long-url";
+const RESULT_PANEL_SHORT_URL_CLASS = "shorten-section__result-short-url";
+const RESULT_PANEL_COPY_BTN_CLASS = "shorten-section__result-copy-btn";
 
 // The original cleanURI API does not support CORS
 // Need to have a proxy server to access the API
@@ -93,7 +95,8 @@ const ResultPanel = props => {
 		<div className={`${RESULT_PANEL_CLASS} ${shortenedURL ? "" : RESULT_PANEL_WAIT_CLASS}`}>
 			{shortenedURL && <>
 				<p className={RESULT_PANEL_LONG_URL_CLASS}>{props.longURL}</p>
-				<p>{shortenedURL}</p>
+				<p className={RESULT_PANEL_SHORT_URL_CLASS}>{shortenedURL}</p>
+				<button className={RESULT_PANEL_COPY_BTN_CLASS}>Copy</button>
 			</>}
 		</div>
 	)
