@@ -67,6 +67,8 @@ const Shortener = () => {
 
 const ResultPanel = props => {
 	const [shortenedURL, setShortenedURL] = React.useState("");
+	const [isCopied, setIsCopied] = React.useState(false);
+
 	React.useEffect(() => {
 		fetch(URL_SHORTENER_ENDPOINT, {
 			method: "POST",
@@ -91,18 +93,29 @@ const ResultPanel = props => {
 
 	}, []);
 
+	function handleCopyBtnClick() {
+		navigator.clipboard.writeText(shortenedURL);
+		setIsCopied(true);
+	}
+
+	function handleExitCopyBtnFocus() {
+		setIsCopied(false);
+	}
+
 	return (
 		<div className={`${RESULT_PANEL_CLASS} ${shortenedURL ? "" : RESULT_PANEL_WAIT_CLASS}`}>
 			{shortenedURL && <>
 				<p className={RESULT_PANEL_LONG_URL_CLASS}>{props.longURL}</p>
 				<p className={RESULT_PANEL_SHORT_URL_CLASS}>{shortenedURL}</p>
-				<button className={RESULT_PANEL_COPY_BTN_CLASS}>Copy</button>
+				<button className={RESULT_PANEL_COPY_BTN_CLASS} onClick={handleCopyBtnClick} onBlur={handleExitCopyBtnFocus}>
+					{isCopied ? "Copied!" : "Copy"}
+				</button>
 			</>}
 		</div>
 	)
 }
 
-const Notification = ({ data: {type, content}, ..._ }) => {
+const Notification = ({ data: {type, content} }) => {
 	const [isExpired, setIsExpired] = React.useState(false);
 
 	function handleAnimationEnd(e) {
